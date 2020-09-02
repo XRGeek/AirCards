@@ -69,6 +69,7 @@ public class AfterClueDetected : MonoBehaviour,ITrackableEventHandler {
     {
         yield return new WaitForSecondsRealtime(8);
         donut.GetComponent<Animator>().SetTrigger("Close");
+        donut.GetComponent<DonutController>().SetObjectState(false);
     }
 
 
