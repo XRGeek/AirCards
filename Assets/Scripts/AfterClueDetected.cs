@@ -61,7 +61,9 @@ public class AfterClueDetected : MonoBehaviour,ITrackableEventHandler {
     {
         yield return new WaitForSecondsRealtime(11);
         donut.SetActive(true);
+        donut.GetComponent<DonutController>().SetObjectState(true);
         donut.GetComponent<Animator>().SetTrigger("Open");
+        element2.GetComponent<Animator>().SetTrigger("FadeOut");
         StartCoroutine(CloseAnimation());
     }
    
@@ -69,6 +71,7 @@ public class AfterClueDetected : MonoBehaviour,ITrackableEventHandler {
     {
         yield return new WaitForSecondsRealtime(8);
         donut.GetComponent<Animator>().SetTrigger("Close");
+        element2.GetComponent<Animator>().SetTrigger("FadeIn");
         donut.GetComponent<DonutController>().SetObjectState(false);
     }
 
